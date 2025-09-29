@@ -1,51 +1,53 @@
 Q1 – Chain Rule of Probability
-The chain rule lets us express the probability of a sentence as a product of conditional probabilities.
-Used in language modeling to break down \( P(w_1, w_2, …, w_n) \) into smaller terms.
+
+Explained how the chain rule breaks down sentence probability into a product of conditional probabilities.
+Highlighted its use in language modeling for sequence probability estimation.
+Conclusion: The chain rule makes complex sequence probabilities computable by splitting them into smaller, manageable conditional terms.
 
 Q2 – Naive Bayes Classification (Confusion Matrix)
-Computed per-class Precision & Recall for Cat, Dog, Rabbit.
-Evaluated classifier performance using confusion matrix analysis.
-Highlighted how metrics differ for each class.
+
+Computed per-class precision and recall for Cat, Dog, and Rabbit.
+Compared macro vs. micro evaluation metrics to show different perspectives on classifier performance.
+Conclusion: Macro treats all classes equally, while Micro emphasizes overall accuracy, showing how evaluation choice changes interpretation.
 
 Q3 – Edit Distance
-Calculated minimum edit distance between two words under two models:
-Model A: Sub=1, Ins=1, Del=1.
-Model B: Sub=2, Ins=1, Del=1.
-Wrote valid edit sequence step by step.
-Computed partial dynamic programming table rows.
+
+Worked out minimum edit distance under two different cost models.
+Showed how choice of substitution, insertion, and deletion costs changes the alignment outcome.
+Conclusion: The edit distance depends heavily on cost settings, highlighting flexibility in modeling real-world spelling or mutation differences.
 
 Q4 – Harms of Classification
-Representational Harm: Reinforcing stereotypes (Kiritchenko & Mohammad, 2018).
-Censorship Risk: Over-blocking of neutral identity-related content in toxicity systems.
-Varieties of English: Worse performance on African American English or Indian English due to dataset bias.
 
-Q5 – Evaluation Metrics (Multi-Class Confusion Matrix)
-Computed precision and recall per class (Cat, Dog, Rabbit).
-Calculated macro-averaged and micro-averaged metrics.
-Explained interpretation:
-Macro = treats classes equally.
-Micro = weights by number of samples.
-Included Python implementation for automation.
+Discussed representational harm (stereotype reinforcement).
+Identified risks of censorship in toxicity classification (over-blocking identity content).
+Explained why dialectal varieties of English face poorer performance due to dataset bias.
+Conclusion: Classifier design must address fairness, inclusivity, and social impact to avoid harm in real-world applications.
+
+Q5 – Evaluation Metrics
+
+Analyzed a multi-class confusion matrix.
+Reported precision and recall for each class.
+Compared macro-averaged vs. micro-averaged metrics and explained interpretation differences.
+Conclusion: Macro metrics emphasize balance across classes, while Micro metrics highlight majority-class performance, offering complementary insights.
 
 Q6 – Bigram Probabilities & Zero-Probability Problem
-Computed MLE probabilities of:
-Sentence 1: <s> I love NLP </s>
-Sentence 2: <s> I love deep learning </s>
-Compared which sentence is more probable.
-Zero-probability problem: e.g., \( P(\text{noodle} \mid ate) = 0 \).
-Solved with Laplace smoothing (Add-1) to avoid zeros.
+
+Estimated probabilities for two example sentences using bigram language models.
+Showed how zero probabilities arise with unseen words.
+Applied smoothing (Add-1) to address the zero-probability issue.
+Conclusion: Smoothing ensures unseen events don’t break the model, making language models more robust and realistic.
 
 Q7 – Backoff Model
-Computed trigram-based \( P(cats \mid I, like) \).
-Used trigram → bigram backoff for \( P(dogs \mid You, like) \).
-Explained why backoff is essential to handle missing higher-order n-grams.
+
+Calculated trigram probability for a known sequence.
+Applied backoff to estimate probability when a trigram was unseen.
+Explained why backoff is essential to handle data sparsity.
+Conclusion: Backoff balances accuracy and coverage, allowing language models to assign nonzero probabilities even with sparse training data.
 
 Q8 – Programming: Bigram Language Model
-Implemented a Bigram Language Model in Python:
-Counted unigrams and bigrams.
-Estimated bigram probabilities using MLE.
-Built a function to compute sentence probability.
-Tested on:
-<s> I love NLP </s>
-<s> I love deep learning </s>
-The model prefers the sentence that appears more consistent with training data.
+
+Implemented a bigram model in Python.
+Counted unigrams and bigrams, and estimated probabilities.
+Tested on two sentences, with the model preferring the one more consistent with training data.
+
+Conclusion: Implementation confirmed theoretical bigram calculations, showing that training data strongly influences sentence probability.
